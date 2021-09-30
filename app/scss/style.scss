@@ -13,7 +13,17 @@
 }
 
 .square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px $black solid; // not even thickness
     width: 200px;
     height: 200px;
     background-color: $white;
+    transition: all 0.10s ease;
+}
+
+.expand {
+    scale: 1.05;
+    background-color: $black;
 }

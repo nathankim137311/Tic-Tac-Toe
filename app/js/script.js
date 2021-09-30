@@ -11,7 +11,12 @@ let gameBoard = {
             this.grid.push(div); 
             i++;    
         } 
-       return this.grid; 
+        // each square listens for a click event 
+        this.grid.forEach(square => square.addEventListener('click', (e) => {
+            e.target.classList.add('expand'); 
+            }) 
+        ); 
+        return this.grid; 
     }
 };
 
