@@ -1,29 +1,44 @@
-@import "globals"; 
-@import "variables"; 
+@import "globals";
+@import "variables";
 
 #game-container {
-    display: grid;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 600px;
-    height: 600px;
-    background-color: $black;
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: repeat(3, auto);
+  display: grid;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  background-color: $white;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
 }
+
+// tiles
 
 .square {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px $black solid; // not even thickness
-    width: 200px;
-    height: 200px;
-    background-color: $white;
-    transition: all 0.10s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px $black solid; // not even thickness
+  width: 200px;
+  height: 200px;
+  background-color: $white;
+  transition: all 0.1s ease;
 }
 
-.expand {
-    scale: 1.05;
-    background-color: $black;
+// X
+
+.xshape::before {
+  content: "x";
+  font-size: 10rem;
+  width: fit-content;
+  color: $black;
+}
+
+// O
+
+.oshape::before {
+  content: "o";
+  font-size: 10rem;
+  width: fit-content;
+  color: $black;
 }

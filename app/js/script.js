@@ -1,26 +1,10 @@
 console.log('hello everyone'); 
 
-let gameBoard = { 
-    gameContainer: document.getElementById('game-container'), 
-    grid: [],
-    createBoard () {
-        let i = this.grid.length; 
-        while (i < 9) {
-            const div = this.gameContainer.appendChild(document.createElement('div'));
-            div.classList.add('square');
-            this.grid.push(div); 
-            i++;    
-        } 
-        // each square listens for a click event 
-        this.grid.forEach(square => square.addEventListener('click', (e) => {
-            e.target.classList.add('expand'); 
-            }) 
-        ); 
-        return this.grid; 
-    }
-};
+import gameBoard from './board.js'
 
-console.log(gameBoard.createBoard());
+gameBoard.createBoard();
+gameBoard.clickSquares(); 
+
 
 
 
