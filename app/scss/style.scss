@@ -1,1 +1,19 @@
 @import "globals"; 
+@import "variables"; 
+
+#game-container {
+    display: grid;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 600px;
+    height: 600px;
+    background-color: $black;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    background-color: $white;
+}
