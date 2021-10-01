@@ -1,7 +1,8 @@
-import name1 from './player.js'
-import name2 from './player.js'
-import { player1 } from './player.js'
-import { player2 } from './player.js'
+import giveName from './player.js'
+
+let players = giveName(); 
+let player1 = players[0];
+let player2 = players[1]; 
 
 let gameFlow = {
   rounds: 5,
@@ -13,14 +14,15 @@ let gameFlow = {
       player1.turnOrder = 1;
       player2.shape = 'o';
       player2.turnOrder = 2;  
-      alert(`${name1} goes first!`);
+      alert(player1.name + 'goes first!');
     } else {
       player2.shape = 'x'; 
       player2.turnOrder = 1; 
       player1.shape = 'o';
       player1.turnOrder = 2;  
-      alert(`${name2} goes first!`);
+      alert(player2.name + 'goes first!');
     }
+    return [player1, player2];
   },
 }
 
