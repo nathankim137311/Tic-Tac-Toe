@@ -1,6 +1,4 @@
 import gameFlow from './flow.js';
-const [first, second] = gameFlow.whoGoesFirst(); 
-let turn = 0; 
 
 let gameBoard = { 
   gameContainer: document.getElementById('game-container'), 
@@ -18,9 +16,9 @@ let gameBoard = {
   clickSquares () {
     this.grid.forEach(square => square.addEventListener('click', (e) => {
       // first player uses 'x' second player uses 'o'; 
-      if (first && turn % 2 == 0) {
+      if (first.shape && turn % 2 == 0) {
         e.target.classList.add('xshape');
-        alert(`${first}\'s turn!`); 
+        alert(`${first.name}\'s turn!`); 
         turn++;
       } else if (second && turn % 2 != 0) {
         e.target.classList.add('oshape');
