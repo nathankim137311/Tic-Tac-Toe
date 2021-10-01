@@ -1,7 +1,6 @@
 import gameBoard from './board.js'
-import { player1, player2 } from './player.js';
-//import player1 from './player.js'
-//import player2 from './player.js'
+import { player1, player2 } from './player.js'
+import createPlayer from './player.js'
 
 let gameFlow = {
   rounds: 5,
@@ -10,13 +9,24 @@ let gameFlow = {
     let coin = Math.floor(Math.random() * 2);
     if (coin === 0) {
       alert(`${player2} goes first`);
-      turns++;  
-      return turns 
+      return coin = player1;
     } else if (coin === 1) {
-      alert(`${player1} goes first!`);  
-      turns++; 
-      return turns
+      alert(`${player1} goes first!`);
+      return coin = player2;   
     }
+  },
+  determineShape () {
+    turn = this.whoGoesFirst(); 
+    if (turn === player1) {
+      player = turn; 
+      shape = 'x'; 
+      createPlayer(player, shape); 
+    } 
+    if (turn === player2) {
+      player = turn;  
+      shape = 'o';
+      createPlayer(player, shape);
+    } 
   },
   createTurns () {
     for(let i = 0; i < this.turns; i++) {
@@ -43,7 +53,5 @@ let gameFlow = {
 
   }
 }
-
-console.log(gameFlow.whoGoesFirst());
 
 export default gameFlow

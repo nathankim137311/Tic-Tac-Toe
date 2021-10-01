@@ -1,3 +1,4 @@
+import gameBoard from './board.js';
 
 let players = {
   promptName () { // stores and displays names 
@@ -7,11 +8,14 @@ let players = {
   }
 }
 
-export const namesArr = players.promptName();
-export let player1 = '' + namesArr[0];
-export let player2 = '' + namesArr[1];
+function createPlayer (firstName, shape) {
+      firstName, 
+      shape
+}
 
-console.log(player1); 
-console.log(player2);
+
 
 export default players 
+export const namesArr = players.promptName();
+export let player1 = namesArr[0];
+export let player2 = namesArr[1];

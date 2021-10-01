@@ -1,3 +1,5 @@
+import gameFlow from "./flow.js"
+import { player1, player2 } from './player.js';
 
 let gameBoard = { 
   gameContainer: document.getElementById('game-container'), 
@@ -14,15 +16,21 @@ let gameBoard = {
   },
   clickSquares () {
     // each square listens for a click event 
+    let turn = gameFlow.whoGoesFirst(); 
     this.grid.forEach(square => square.addEventListener('click', (e) => {
-      // if it's player one's turn add player one's shape
-      // if it's computer's turn add computer's shape  
-      
-      // e.target.classList.add('xshape'); 
-      // e.target.classList.add('oshape'); 
-       }) 
-     ); 
-     return this.grid; 
+      if (turn === player1) {
+        e.target.classList.add('xshape');
+        alert(`${turn}\'s turn!`);
+        turn = player2; 
+      } 
+      if (turn === player2) { 
+        e.target.classList.add('xshape');
+        alert(`${turn}\'s turn!`);
+        turn = player1; 
+      } 
+    }) 
+   ); 
+   return turn; 
   }
 };
 
