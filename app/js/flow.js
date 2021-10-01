@@ -6,52 +6,63 @@ let gameFlow = {
   rounds: 5,
   turns: 0, // turns end if someone wins the round 
   whoGoesFirst () { // determines which player goes first
-    let coin = Math.floor(Math.random() * 2);
-    if (coin === 0) {
-      alert(`${player2} goes first`);
-      return coin = player1;
-    } else if (coin === 1) {
-      alert(`${player1} goes first!`);
-      return coin = player2;   
-    }
-  },
-  determineShape () {
-    turn = this.whoGoesFirst(); 
-    if (turn === player1) {
-      player = turn; 
-      shape = 'x'; 
-      createPlayer(player, shape); 
+    let first = Math.floor(Math.random() * 2);
+    let second = null; 
+    if (first === 0) {
+      alert(`${player2} goes first!`);
+      first = new createPlayer(player2, 'x', second, 0);
+      second = new createPlayer(player1, 'x', first, 0);  
     } 
-    if (turn === player2) {
+    if (first === 1) {
+      alert(`${player1} goes first!`);
+      first = new createPlayer(player1, 'x', first, 0); 
+      second = new createPlayer(player2, 'x', second, 0); 
+    } 
+    return [first, second]; 
+  },
+  determineShape () { 
+    if (this.turn === player1) {
+      player = this.turn; 
+      shape = 'x'; 
+      return createPlayer(player, shape); 
+    } 
+    if (this.turn === player2) {
       player = turn;  
       shape = 'o';
-      createPlayer(player, shape);
+      return createPlayer(player, shape);
     } 
-  },
-  createTurns () {
-    for(let i = 0; i < this.turns; i++) {
-
-    }
-  },
-  createRounds () { // creates five rounds 
-    for(let i = 0; i < this.rounds; i++) {
-      this.createTurns();  
-    }
-  },
-  clearPrevious () { // removes X's and O's from the gameboard
-    gameBoard.grid.forEach(square => {
-      square.classList.remove('xshape', 'oshape'); 
-    });
-  },
-  getScore () { // scoring and tally up points  
-
-  },
-  getResult () {
-
-  }, 
-  determineWinner () {
-
   }
 }
 
 export default gameFlow
+
+
+/*
+console.log(gameFlow.determineShape());
+export default gameFlow
+
+createTurns () {
+  for(let i = 0; i < this.turns; i++) {
+
+  }
+},
+createRounds () { // creates five rounds 
+  for(let i = 0; i < this.rounds; i++) {
+    this.createTurns();  
+  }
+},
+clearPrevious () { // removes X's and O's from the gameboard
+  gameBoard.grid.forEach(square => {
+    square.classList.remove('xshape', 'oshape'); 
+  });
+},
+getScore () { // scoring and tally up points  
+
+},
+getResult () {
+
+}, 
+determineWinner () {
+
+}
+*/

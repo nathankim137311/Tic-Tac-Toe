@@ -1,5 +1,6 @@
-import gameFlow from "./flow.js"
-import { player1, player2 } from './player.js';
+import gameFlow from './flow.js';
+const [first, second] = gameFlow.whoGoesFirst(); 
+let turn = 0; 
 
 let gameBoard = { 
   gameContainer: document.getElementById('game-container'), 
@@ -15,22 +16,19 @@ let gameBoard = {
     return this.grid; 
   },
   clickSquares () {
-    // each square listens for a click event 
-    let turn = gameFlow.whoGoesFirst(); 
     this.grid.forEach(square => square.addEventListener('click', (e) => {
-      if (turn === player1) {
+      // first player uses 'x' second player uses 'o'; 
+      if (first && turn % 2 == 0) {
         e.target.classList.add('xshape');
-        alert(`${turn}\'s turn!`);
-        turn = player2; 
-      } 
-      if (turn === player2) { 
-        e.target.classList.add('xshape');
-        alert(`${turn}\'s turn!`);
-        turn = player1; 
-      } 
+        alert(`${first}\'s turn!`); 
+        turn++;
+      } else if (second && turn % 2 != 0) {
+        e.target.classList.add('oshape');
+        alert(`${second}\'s turn!`);
+        turn++; 
+      }
     }) 
-   ); 
-   return turn; 
+   );  
   }
 };
 

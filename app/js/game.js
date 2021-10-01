@@ -2,9 +2,9 @@ import gameBoard from './board.js'
 import players from './player.js'
 import gameFlow from './flow.js'
 
-
-gameBoard.createBoard();
-gameBoard.clickSquares(); 
+console.log(gameFlow.whoGoesFirst());
+// gameBoard.createBoard();
+// gameBoard.clickSquares(); 
 
 
 
