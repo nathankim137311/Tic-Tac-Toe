@@ -19,11 +19,12 @@ let gameFlow = {
     }
     return [player1, player2];
   },
-  checkForThree () {
-    // checks for three in a row of any shape class on the grid 
+  checkForThree () { // checks for three in a row of any shape class on the grid 
+    // 'x' wins
     // winning row conditions 
     const grid = gameBoard.grid;
     if (grid[0].classList.contains('xshape') && grid[1].classList.contains('xshape') && grid[2].classList.contains('xshape')) {
+
       // whoever has 'x' property has won 
       if (player1.shape === 'x') {
         alert(player1.name + ' ' + "has won!");
@@ -66,13 +67,69 @@ let gameFlow = {
       } else {
         alert(player2.name + ' ' + "has won!");
       }
-      } else if (grid[2].classList.contains('xshape') && grid[4].classList.contains('xshape') && grid[6].classList.contains('xshape')) {
-        if (player1.shape === 'x') {
-          alert(player1.name + ' ' + "has won!");
-        } else {
-          alert(player2.name + ' ' + "has won!");
-        }
+    } else if (grid[2].classList.contains('xshape') && grid[4].classList.contains('xshape') && grid[6].classList.contains('xshape')) {
+      if (player1.shape === 'x') {
+        alert(player1.name + ' ' + "has won!");
+      } else {
+        alert(player2.name + ' ' + "has won!");
       }
+    }
+    // 'o' wins
+    // winning row conditions 
+    if (grid[0].classList.contains('oshape') && grid[1].classList.contains('oshape') && grid[2].classList.contains('oshape')) {
+      // whoever has 'o' property has won 
+      if (player2.shape === 'o') {
+        alert(player2.name + ' ' + "has won!");
+      } else {
+        alert(player1.name + ' ' + "has won!");
+      };
+    } else if (grid[3].classList.contains('oshape') && grid[4].classList.contains('oshape') && grid[5].classList.contains('oshape')) {
+      if (player2.shape === 'o') {
+        alert(player2.name + ' ' + "has won!");
+      } else {
+        alert(player1.name + ' ' + "has won!");
+      };
+    } else if (grid[6].classList.contains('oshape') && grid[7].classList.contains('oshape') && grid[8].classList.contains('oshape')) {
+      if (player2.shape === 'o') {
+        alert(player2.name + ' ' + "has won!");
+      } else {
+        alert(player1.name + ' ' + "has won!");
+      };
+    }
+    // winning column conditions
+    if (grid[0].classList.contains('oshape') && grid[3].classList.contains('oshape') && grid[6].classList.contains('oshape')) {
+      if (player2.shape === 'o') {
+        alert(player2.name + ' ' + "has won!");
+      } else {
+        alert(player1.name + ' ' + "has won!");
+      };
+    } else if (grid[1].classList.contains('oshape') && grid[4].classList.contains('oshape') && grid[7].classList.contains('oshape')) {
+      if (player2.shape === 'o') {
+        alert(player2.name + ' ' + "has won!");
+      } else {
+        alert(player1.name + ' ' + "has won!");
+      };
+    } else if (grid[2].classList.contains('oshape') && grid[5].classList.contains('oshape') && grid[8].classList.contains('oshape')) {
+      if (player2.shape === 'o') {
+        alert(player2.name + ' ' + "has won!");
+      } else {
+        alert(player1.name + ' ' + "has won!");
+      };
+    }
+    // winning diagonal conditions 
+    if (grid[0].classList.contains('oshape') && grid[4].classList.contains('oshape') && grid[8].classList.contains('oshape')) {
+      if (player2.shape === 'o') {
+        alert(player2.name + ' ' + "has won!");
+      } else {
+        alert(player1.name + ' ' + "has won!");
+      }
+    } else if (grid[2].classList.contains('oshape') && grid[4].classList.contains('oshape') && grid[6].classList.contains('oshape')) {
+      if (player2.shape === 'o') {
+        alert(player2.name + ' ' + "has won!");
+      } else {
+        alert(player1.name + ' ' + "has won!");
+      }
+    }
   }
 }
 
