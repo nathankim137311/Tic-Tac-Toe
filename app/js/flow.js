@@ -68,9 +68,7 @@ let gameFlow = {
     if (grid[0].classList.contains('oshape') && grid[4].classList.contains('oshape') && grid[8].classList.contains('oshape')) {
       this.scorePoints(); 
     } else if (grid[2].classList.contains('oshape') && grid[4].classList.contains('oshape') && grid[6].classList.contains('oshape')) {
-      this.scorePoints(); 
-    } else { 
-      this.draw(); 
+      this.scorePoints();
     }
   }, 
   scorePoints () {
