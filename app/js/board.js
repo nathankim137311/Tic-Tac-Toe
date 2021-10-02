@@ -24,7 +24,6 @@ let gameBoard = {
         e.target.classList.add('xshape'); 
         if (player1.shape === 'x') {
           displayController.whoseTurn.textContent = `${player2.name}\'s turn!`; 
-          // alert(`${player2.name}\'s turn!`); 
           turns = 1;
         } else {
           displayController.whoseTurn.textContent = `${player1.name}\'s turn!`; 
@@ -44,7 +43,12 @@ let gameBoard = {
       gameFlow.checkForThree(); 
     }) 
    );  
-  }
+  },
+  clearBoard () { // removes all classes from array divs 
+    for (let i = 0; i < this.grid.length; i++) {
+      this.grid[i].classList.remove('xshape', 'oshape'); 
+    }
+  } 
 };
 
 export default gameBoard 

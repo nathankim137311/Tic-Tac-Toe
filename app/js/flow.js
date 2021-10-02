@@ -20,19 +20,6 @@ let gameFlow = {
     }
     return [player1, player2];
   },
-  scorePoints () {
-    if (player1.shape === 'x') {
-      displayController.whoseTurn.textContent = `${player1.name} has won!`; 
-      player1.score++;
-      displayController.displayScore();
-      return player1.score;
-    } else {
-      displayController.whoseTurn.textContent = `${player2.name} has won!`; 
-      player2.score++;
-      displayController.displayScore();
-      return player2.score;
-    };
-  },
   checkForThree () { // checks for three in a row of any shape class on the grid 
     // 'x' wins
     // winning row conditions 
@@ -82,7 +69,38 @@ let gameFlow = {
       this.scorePoints(); 
     } else if (grid[2].classList.contains('oshape') && grid[4].classList.contains('oshape') && grid[6].classList.contains('oshape')) {
       this.scorePoints(); 
+    } else { 
+      this.draw(); 
     }
+  }, 
+  scorePoints () {
+    if (player1.shape === 'x') {
+      displayController.whoseTurn.textContent = `${player1.name} has won!`; 
+      alert(`${player1.name} has won!`)
+      player1.score++;
+      displayController.displayScore();
+    } else if (player2.shape === 'x') {
+      displayController.whoseTurn.textContent = `${player2.name} has won!`; 
+      alert(`${player2.name} has won!`)
+      player2.score++;
+      displayController.displayScore();
+    };
+    gameBoard.clearBoard(); 
+    whoseTurn.textContent = ''; 
+  },
+  draw () { // if the game ends in a draw 
+    displayController.whoseTurn.textContent = 'It\'s a tie!'; 
+    alert('It\'s a tie!');
+  },
+  checkForWinner () {
+    if (player1.score === 3) { // first to 3 wins the game 
+      displayController.whoseTurn.textContent = `Congratulations ${player1.name} you win!`; 
+      alert(`Congratulations ${player1.name} you have won the game!`);
+    } else if (player2.score === 3) {
+      displayController.whoseTurn.textContent = `Congratulations ${player2.name} you win!`; 
+      alert(`Congratulations ${player2.name} you have won the game!`);
+    }
+    displayController.clearDisplay(); 
   }
 }
 
