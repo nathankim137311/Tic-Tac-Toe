@@ -5,4 +5,5 @@ import gameBoard from './board.js'
 gameBoard.createBoard();
 gameBoard.clickSquares();
 gameFlow.whoGoesFirst(); 
+console.log(gameBoard.grid);
 // creates the players 

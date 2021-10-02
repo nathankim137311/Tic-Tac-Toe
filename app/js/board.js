@@ -1,5 +1,6 @@
 import { player1 } from './flow.js'; 
 import { player2 } from './flow.js';
+import gameFlow from './flow.js'
 
 let gameBoard = { 
   gameContainer: document.getElementById('game-container'), 
@@ -38,25 +39,7 @@ let gameBoard = {
           turns = 0;
         }
       }
-
-      //if (player1.shape === 'x' && turns % 2 == 0) {
-      //  e.target.classList.add('xshape');
-      //  alert(`${player1.name}\'s turn!`); 
-      //  turns++; 
-      //} else if (player2.shape === 'o' && turns % 2 != 0) {
-      //  e.target.classList.add('oshape');
-      //  alert(`${player2.name}\'s turn!`);
-      //  turns++; 
-      //}
-      //if (player2.shape === 'x' && turns % 2 == 0 ) {
-      //  e.target.classList.add('xshape');
-      //  alert(`${player2.name}\'s turn!`); 
-      //  turns++; 
-      //} else if (player1.shape === 'o' && turns % 2 != 0) {
-      //  e.target.classList.add('oshape');
-      //  alert(`${player1.name}\'s turn!`);
-      //  turns++; 
-      //}
+      gameFlow.checkForThree(); 
     }) 
    );  
   }
