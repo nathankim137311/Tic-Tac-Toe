@@ -1,5 +1,6 @@
 import giveName from './player.js'
 import gameBoard from './board.js'
+import displayController from './display.js';
 
 export let players = giveName(); 
 export let player1 = players[0];
@@ -21,13 +22,15 @@ let gameFlow = {
   },
   scorePoints () {
     if (player1.shape === 'x') {
-      alert(player1.name + ' ' + "has won!");
-      player1.score++
-      console.log(player1.score);
+      displayController.whoseTurn.textContent = `${player1.name} has won!`; 
+      player1.score++;
+      displayController.displayScore();
+      return player1.score;
     } else {
-      alert(player2.name + ' ' + "has won!");
-      player2.score++
-      console.log(player2.score);
+      displayController.whoseTurn.textContent = `${player2.name} has won!`; 
+      player2.score++;
+      displayController.displayScore();
+      return player2.score;
     };
   },
   checkForThree () { // checks for three in a row of any shape class on the grid 
