@@ -29,7 +29,7 @@ let gameBoard = {
           turns = 1;
         }
       } else if (turns == 1) {
-        e.target.classList.add('oshape'); 
+        e.target.classList.add('oshape');
         turns = 0; 
         if (player1.shape === 'o') {
           alert(`${player2.name}\'s turn!`);
