@@ -1,10 +1,23 @@
 @import "globals";
 @import "variables";
 
+#buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  button {
+    width: 50px;
+    height: 25px;
+    margin: 10px;
+  }
+}
+
 #display {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
+  width: 400px;
+  margin: 10px;
 }
 
 #game-container {
